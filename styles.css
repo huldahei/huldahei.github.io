@@ -2,6 +2,7 @@ body {
 
     user-select: none;
     font-family: 'Courier New', Courier, monospace;
+    background-color: #DACEDF;
 }
 
 #main {
