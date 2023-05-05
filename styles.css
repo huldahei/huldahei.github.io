@@ -1,0 +1,22 @@
+body {
+
+    user-select: none;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#main {
+
+    margin: auto;
+    margin-top: 15%;
+    width: 50%;
+    padding: 10px;
+    border: solid gray;
+    text-align: center;
+
+}
+
+li {
+
+    list-style-type: none;
+    line-height: 1.5;
+}
