@@ -1,11 +1,20 @@
 body {
 
-    user-select: none;
+    margin: 0;
+    background-color: #BF9FCC;
     font-family: 'Courier New', Courier, monospace;
-    background-color: #DACEDF;
 }
 
-#main {
+header {
+
+    text-decoration: none;
+    color: #562E66;
+    font-size: 14px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+#wrapper {
 
     margin: auto;
     margin-top: 15%;
@@ -14,12 +23,33 @@ body {
     border: solid gray;
     text-align: center;
     
-    background-color: #BF9FCC; 
-
+    background-color: #DBC8E2; 
 }
+
+hr {
+
+    border: 1px solid black;
+}
+
+h1 {
+
+    font-size: 20px;
+}
+
 
 li {
 
     list-style-type: none;
     line-height: 1.5;
+}
+
+a {
+
+    text-decoration: none;
+    color: #562E66;
+}
+
+a:hover {
+
+    font-weight: bold;
 }
