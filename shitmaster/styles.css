@@ -1,0 +1,377 @@
+body {
+
+    user-select: none;
+    font-family: 'Courier New', Courier, monospace
+}
+
+header {
+
+    position: sticky;
+    top: 0;
+    height: 98px;
+    width: 100%;
+
+    text-align: center;
+
+    background-color: silver;
+    padding-top: 10px;
+}
+
+header h1 {
+
+    font-size: xx-large;
+    font-weight: bold;
+    margin-bottom: 10px;
+    
+
+}
+
+#achievement-container {
+
+    display: flex;
+    gap: 20px;
+    font-style: italic;
+}
+
+.achievement {
+
+    background-color: #E4C2F1;
+    padding: 5px;
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+footer {
+
+    position: fixed;
+    bottom: 0;
+    height: 40px;
+    width: 100%;
+    
+    background-color: silver;
+
+    
+    
+}
+
+#footer-content {
+    
+    display: flex;
+    justify-content: space-around;
+
+}
+
+.footer-text {
+
+    font-size: small;
+    font-style: italic;
+    padding: 10px;
+}
+
+#reset-button {
+
+    padding: 2px;
+    border: solid gray;
+    margin-top: 5px;
+    background-color: #F0F0F0;
+    font-size: small;
+}
+
+#reset-button:hover {
+
+    cursor: pointer;
+    background-color: red;
+    color: white;
+    border: solid white;
+}
+
+#reset-button:active {
+
+    background-color: pink;
+    color:red;
+}
+
+
+main {
+
+    margin-top: 20px;
+    margin-bottom: 50px;
+    display:flex;
+    justify-content: space-around;
+    gap: 10px;
+    
+    
+}
+
+h2 {
+
+    font-size: large;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+hr {
+
+    border: solid gray 1px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.amount {
+
+    font-weight: bold;
+}
+
+/* LEFT */
+
+#containerLeft {
+
+    border: solid gray;
+    background-color: whitesmoke;
+    padding: 20px;
+    width: 30%;
+
+}
+
+#main-stats-and-buttons {
+
+    font-size: small;
+    line-height: 1.5;
+}
+
+#shit-button-container {
+
+    
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.shit-button {
+
+    border: solid gray;
+    background-color: #D4B7A4;
+    width: 125px;
+    padding: 5px;
+    text-align: center;
+}
+
+.shit-button:hover {
+
+    cursor: pointer;
+    background-color: #E7D2B8;
+}
+
+.shit-button:active {
+
+    background-color: #C1AD95;
+}
+
+#shit-per-interval-container {
+
+    margin-top: 10px;
+}
+
+#worker-container {
+
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#worker-stats-container {
+
+    font-size: small;
+    line-height: 1.5;
+    margin-top: 10px;
+}
+
+.worker-button {
+
+    border: solid gray;
+    background-color: silver;
+    padding: 3px;
+    margin-bottom: 5px;
+    width: 125px;
+    text-align: center;
+   
+}
+
+.worker-button:hover {
+
+    cursor: pointer;
+    background-color:  #CBEBF1;
+}
+
+.worker-button:active {
+
+    background-color: #A4D4DD;
+}
+
+/* CENTER */
+
+#containerCenter {
+ 
+    border: solid gray;
+    background-color: whitesmoke;
+    padding: 20px;
+    width: 30%;
+}
+
+.shop-item-container {
+
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.shop-item {
+
+    border: solid gray;
+    width: 125px;
+    padding: 10px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    background-color: #ECEAEA;
+    font-size: small;
+    line-height: 1.5;
+}
+
+.shop-button {
+
+    border: solid gray;
+    background-color: silver;
+    padding: 3px;
+    margin-bottom: 5px;
+    width: 100px;
+    text-align: center;
+}
+
+.shop-button:hover {
+
+    cursor: pointer;
+    background-color: #E6F6CC;
+}
+
+.shop-button:active {
+
+    background-color: #C1DD94;
+}
+
+.machine-shop-container {
+
+    display: flex;
+}
+/* RIGHT */
+
+#containerRight {
+    
+    border: solid gray;
+    background-color: whitesmoke;
+    padding: 20px;
+    width: 30%;
+}
+
+#time {
+
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+
+    font-size: small;
+    line-height: 1.5;
+}
+
+#stats {
+
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: small;
+    line-height: 1.5;
+}
+
+/* UPGRADE BUTTON */
+
+/*
+
+#upgrade-header-container {
+
+
+}
+
+*/
+
+
+#upgrade-container {
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.upgrade {
+
+    background-color: pink;
+    border-radius: 20px;
+    padding: 10px;
+    font-size: small;
+    font-weight: bold;
+    text-align: center;
+}
+
+.upgrade:hover {
+
+    cursor: pointer;
+    background-color: hotpink;
+}
+
+.upgarde:active {
+
+    background-color: whitesmoke;
+}
+
+/* DEV BUTTONS */
+
+#dev-button-container {
+
+    line-height: 1.5;
+}
+
+
+
+
+  #header-content {
+
+    display: flex;
+    justify-content: space-around;
+
+  }
+
+  /* COLLAPSIBLE */
+
+  .collapsible {
+    position: fixed;
+    top: 60px;
+
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 10px;
+    width: 100%;
+    border: none;
+    text-align: center;
+    outline: none;
+    font-size: medium;
+  }
+  
+  /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+  .active, .collapsible:hover {
+    background-color: #EADDEF;
+  }
+  
+  /* Style the collapsible content. Note: hidden by default */
+  .content {
+    padding: 0 10px;
+    display: none;
+    overflow: hidden;
+    background-color: #f1f1f1;
+  }
