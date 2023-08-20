@@ -483,7 +483,7 @@ let diggerUpgrade = {
 
     name: ["digger upgrade", "digger upgrade 2"], 
     description: ["doubles the amount of shit shoveled by diggers", "doubles the amount of shit shoveled by diggers"],
-    cost: [1000, 5000],
+    cost: [500, 5000],
     buildingIndex: [0, 0], 
     requirement: [1, 5],
     bonus: [2, 2],
@@ -514,7 +514,7 @@ let workerUpgrade = {
 
     name: ["worker upgrade 1", "worker upgrade 2"],
     description: ["doubles the amount of shit sold by workers", "doubles the amount of shit sold by workers"],
-    cost: [4200, 42000],
+    cost: [420, 4200],
     requirement: [1, 5],
     bonus: [2, 2],
     purchased: [false, false],
