@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>shitmaster</title>
+    <title>shitmaster 15.8.2023</title>
     <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -23,20 +23,23 @@
         <div id="containerLeft">
             <h2>work</h2>
             <div id="main-stats-and-buttons">
-                <p>gold: <span id="gold"></span></p>
-                <p>shit produced: <span id="shit-produced"></span></p>
-                <p>shit shoveled: <span id="shit-shoveled"></span></p>
-                <p>shit per click: <span id="shovel-power">0</span></p>
+                <p>gold: <span id="gold" class="amount"></span></p>
+                <p>shit produced: <span id="shit-produced" class="amount"></span></p>
+                <p>shit shoveled: <span id="shit-shoveled" class="amount"></span></p>
+                <p>shit shoveled per click: <span id="shovel-power" class="amount"></span></p>
+                <!--<p>shit sold per click: <span id="gold-value"></span></p>-->
+                <p>shit value: <span id="shit-value" class="amount"></span> gold / 5 shit</p>
+                <p></p>
                 <div id="shit-button-container">
                     <button id="clicker" class="shit-button" 
                     title="click to shovel shit">shovel shit</button>
 
                     <button class="shit-button" onclick="sellShit();"
-                    title="5 units of shit shoveled = 1 gold">sell shit</button> 
+                    title="click to sell shit">sell shit</button> 
                 </div>
                 <div id="shit-per-interval-container">
-                    <p>shit produced: <span id="shit-produced-per-interval">0</span>/s</p>
-                    <p>shit shoveled: <span id="shit-shoveled-per-interval">0</span>/s</p>
+                    <p>shit produced: <span id="shit-produced-per-interval" class="amount">0</span>/s</p>
+                    <p>shit shoveled: <span id="shit-shoveled-per-interval" class="amount">0</span>/s</p>
                 </div>
             </div>
             
@@ -53,13 +56,14 @@
                     <p>amount: <span class="amount" id="workers"></span></p>
                     <br>
                     <p>income per worker: <span class="amount" id="worker-income"></span>/5s</p>
+
                     <p>(total income: <span class="amount" id="worker-income-per-interval"></span>/5s)</p>
                     <br>
                     <p>pay per worker: <span class="amount" id="worker-pay"></span>/10s</p>
                     <p>(total pay: <span class="amount" id="worker-pay-per-interval"></span>/10s)</p>
                     <br>
                     <p>shit required: <span class="amount" id="shit-required-per-interval"></span>/5s</p>
-                    
+
                 </div>    
             </div>
         </div>
@@ -70,24 +74,24 @@
                 <div class="shop-item">
                     <button class="shop-button" onclick="buyCow()"
                     title="produces shit">buy cow</button>
-                        <p>amount: <span id="cows"></span></p>
-                        <p>cost: <span id="cow-cost"></span></p>
-                        <p>income: <span id="cow-income"></span>/s</p>
+                        <p>amount: <span id="cows" class="amount"></span></p>
+                        <p>cost: <span id="cow-cost" class="amount"></span></p>
+                        <p>income: <span id="cow-income" class="amount"></span>/s</p>
                 </div>
 
                 <div class="shop-item" id="moose-container" style="display: none;">
                     <button class="shop-button" onclick="buyMoose()"
                     title="produces shit">buy moose</button>
-                        <p>amount: <span id="moose"></span></p>
-                        <p>cost: <span id="moose-cost"></span></p>
-                        <p>income: <span id="moose-income"></span>/s</p>
+                        <p>amount: <span id="moose" class="amount"></span></p>
+                        <p>cost: <span id="moose-cost" class="amount"></span></p>
+                        <p>income: <span id="moose-income" class="amount"></span>/s</p>
                 </div>
                 <div class="shop-item" id="dragon-container" style="display: none;">
                     <button class="shop-button" onclick="buyDragon()"
                     title="produces shit">buy dragon</button>
-                        <p>amount: <span id="dragons"></span></p>
-                        <p>cost: <span id="dragon-cost"></span></p>
-                        <p>income: <span id="dragon-income"></span>/s</p>
+                        <p>amount: <span id="dragons" class="amount"></span></p>
+                        <p>cost: <span id="dragon-cost" class="amount"></span></p>
+                        <p>income: <span id="dragon-income" class="amount"></span>/s</p>
                 </div>
             </div>
             
@@ -101,17 +105,25 @@
                     
                     <button class="shop-button" onclick="buyPowerShovel()"
                     title="autoshovels shit">buy power shovel</button>
-                        <p>amount: <span id="power-shovels"></span></p>
-                        <p>cost: <span id="power-shovel-cost"></span></p>
-                        <p>income: <span id="power-shovel-income"></span>/5s</p>
+                        <p>amount: <span id="power-shovels" class="amount"></span></p>
+                        <p>cost: <span id="power-shovel-cost" class="amount"></span></p>
+                        <p>income: <span id="power-shovel-income" class="amount"></span>/5s</p>
                 </div>
                 <div class="shop-item" id="digger-container" style="display: none;">
                     
                     <button class="shop-button" onclick="buyDigger()"
                     title="autoshovels shit">buy digger</button>
-                        <p>amount: <span id="diggers"></span></p>
-                        <p>cost: <span id="digger-cost"></span></p>
-                        <p>income: <span id="digger-income"></span>/5s</p>
+                        <p>amount: <span id="diggers" class="amount"></span></p>
+                        <p>cost: <span id="digger-cost" class="amount"></span></p>
+                        <p>income: <span id="digger-income" class="amount"></span>/5s</p>
+                </div>
+                <div class="shop-item" id="excavator-container" style="display: none;">
+                    
+                    <button class="shop-button" onclick="buyExcavator()"
+                    title="autoshovels shit">buy excavator</button>
+                        <p>amount: <span id="excavators" class="amount"></span></p>
+                        <p>cost: <span id="excavator-cost" class="amount"></span></p>
+                        <p>income: <span id="excavator-income" class="amount"></span>/5s</p>
                 </div>
             </div>
         </div>
@@ -127,13 +139,13 @@
                     <span id="seconds" class="amount"></span>
                 </div>
                 <div id="stats">
-                    <p>total gold made: <span id="total-gold-made">0</span></p>
-                    <p>total shit produced: <span id="total-shit-produced">0</span></p>
-                    <p>total shit shoveled: <span id="total-shit-shoveled">0</span></p>
-                    <p>total shit sold: <span id="total-shit-sold">0</span></p>
-                    <p>total clicks: <span id="total-clicks">0</span></p>
-                    <p>total gold made by workers: <span id="total-gold-made-by-workers">0</span></p>
-                    <p>total gold paid to workers: <span id="workers-paid-total">0</span></p>
+                    <p>total gold made: <span id="total-gold-made" class="amount">0</span></p>
+                    <p>total shit produced: <span id="total-shit-produced" class="amount">0</span></p>
+                    <p>total shit shoveled: <span id="total-shit-shoveled" class="amount">0</span></p>
+                    <p>total shit sold: <span id="total-shit-sold" class="amount">0</span></p>
+                    <p>total clicks: <span id="total-clicks" class="amount">0</span></p>
+                    <p>total gold made by workers: <span id="total-gold-made-by-workers" class="amount">0</span></p>
+                    <p>total gold paid to workers: <span id="workers-paid-total" class="amount">0</span></p>
                 </div>
                 
                 <!--
