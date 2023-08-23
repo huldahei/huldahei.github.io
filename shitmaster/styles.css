@@ -231,7 +231,7 @@ hr {
     padding: 10px;
     margin-bottom: 10px;
     margin-right: 10px;
-    background-color: #ECEAEA;
+    background-color: white;/*#ECEAEA;*/
     font-size: small;
     line-height: 1.5;
 }
@@ -256,6 +256,8 @@ hr {
 
     background-color: #C1DD94;
 }
+
+
 
 .machine-shop-container {
 
@@ -318,13 +320,76 @@ hr {
     text-align: center;
 }
 
-.upgrade:hover {
+/* SHOVEL */
+
+
+.upgrade.shovel {
+
+    background-color: pink;
+}
+
+.upgrade.shovel:hover {
 
     cursor: pointer;
     background-color: hotpink;
 }
 
-.upgarde:active {
+.upgarde.shovel:active {
+
+    background-color: whitesmoke;
+}
+
+/* SHIT */
+
+.upgrade.shit {
+
+    background-color: #D4B7A4;
+}
+
+.upgrade.shit:hover {
+
+    cursor: pointer;
+    background-color: #C1AD95; 
+}
+
+.upgarde.shit:active {
+
+    background-color: whitesmoke;
+}
+
+
+/* SHOP */
+
+.upgrade.shop {
+
+    background-color: #E6F6CC;
+}
+
+.upgrade.shop:hover {
+
+    cursor: pointer;
+    background-color: #C1DD94;
+}
+
+.upgrade.shop:active {
+
+    background-color: whitesmoke;
+}
+
+/* WORKER */
+
+.upgrade.worker {
+
+    background-color: #CBEBF1;
+}
+
+.upgrade.worker:hover {
+
+    cursor: pointer;
+    background-color: #A4D4DD;
+}
+
+.upgrade.worker:active {
 
     background-color: whitesmoke;
 }
@@ -363,12 +428,12 @@ hr {
     font-size: medium;
   }
   
-  /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+
   .active, .collapsible:hover {
     background-color: #EADDEF;
   }
   
-  /* Style the collapsible content. Note: hidden by default */
+
   .content {
     padding: 0 10px;
     display: none;
