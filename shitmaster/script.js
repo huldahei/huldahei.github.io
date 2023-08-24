@@ -2,6 +2,7 @@
 //
 // added sellFiftyShit-button that appears after having sold 1000 shit
 // tuned costs and incomes a lot
+// added workerIncome*bonus in shitUpgrade
 
 
 
@@ -551,9 +552,11 @@ let shitUpgrade = {
             if (totalShitSold >= this.requirement[index]) {
                 gold -= this.cost[index];
                 shitValue = shitValue * this.bonus[index];
+                workerIncome = workerIncome * this.bonus[index];
                 this.purchased[index] = true;
 
                 document.getElementById("shit-value").innerHTML = shitValue;
+                document.getElementById("worker-income").innerHTML = workerIncome;
                 display.updateUpgrades();
 
             }
