@@ -1,10 +1,7 @@
-// 23.8.2023 
+// 24.8.2023 (earlier version on github (github v.01)
 //
-// added more upgrades
-// added excavator
-// tuned prices
-// added shit upgrade (shitValue x 2)
-// changed upgrades to different colors (.shovel, .shit, .shop, .worker)
+// added sellFiftyShit-button that appears after having sold 1000 shit
+// tuned costs and incomes a lot
 
 
 
@@ -37,20 +34,20 @@ let mooseIncome = 5;
 let mooseCost = 50;
 
 let dragons = 0;
-let dragonIncome = 25;
-let dragonCost = 200;
+let dragonIncome = 30;
+let dragonCost = 250;
 
 let powerShovels = 0;
-let powerShovelIncome = 1;
+let powerShovelIncome = 2;
 let powerShovelCost = 25
 
 let diggers = 0;
-let diggerIncome = 20;
-let diggerCost = 150;
+let diggerIncome = 10;
+let diggerCost = 125;
 
 let excavators = 0;
-let excavatorIncome = 50;
-let excavatorCost = 500;
+let excavatorIncome = 40;
+let excavatorCost = 600;
 
 let workers = 0;
 let workerPay = 2;
@@ -85,6 +82,11 @@ function passTime() {
         hoursPassed = 0;
         daysPassed = daysPassed + 1;
         document.getElementById("days").innerHTML = daysPassed + " d ";
+    }
+    if (daysPassed >= 7) {
+        daysPassedPassed = 0;
+        weeksPassed = weeksPassed + 1;
+        document.getElementById("weeks").innerHTML = weeksPassed + " w ";
     }
 }
 
@@ -124,6 +126,8 @@ function sellShit() {
 
     if (shitShoveled >= goldValue) {
 
+        totalClicks++;
+
         shitShoveled = shitShoveled - goldValue;
         gold = gold + shitValue;
         totalGoldMade = totalGoldMade + shitValue;
@@ -133,8 +137,32 @@ function sellShit() {
         document.getElementById("total-gold-made").innerHTML = totalGoldMade;
         document.getElementById("total-shit-sold").innerHTML = totalShitSold;
 
+        document.getElementById("total-clicks").innerHTML = totalClicks;
+    }
+
+}
+
+function sellFiftyShit() {
+
+    if (shitShoveled >= goldValue * 10) { // if have more than 50 shit Shoveled  
+
+        totalClicks++;
+
+        shitShoveled = shitShoveled - goldValue * 10;   // 5 x 10 = 50 shit
+        gold = gold + shitValue * 10;                   // 5 x 1 = 5  gold 
+        totalGoldMade = totalGoldMade + shitValue * 10;
+        totalShitSold = totalShitSold + goldValue * 10;
+        document.getElementById("shit-shoveled").innerHTML = shitShoveled;
+        document.getElementById("gold").innerHTML = gold;
+        document.getElementById("total-gold-made").innerHTML = totalGoldMade;
+        document.getElementById("total-shit-sold").innerHTML = totalShitSold;
+
+        document.getElementById("total-clicks").innerHTML = totalClicks;
+
     }
 }
+
+
 
 function getShitProducedPerInterval() {
 
@@ -157,6 +185,8 @@ function buyCow() {
 
     if (gold >= cowCost) {
 
+        totalClicks++;
+
         gold = gold - cowCost;
         cows++;
         cowCost = Math.ceil(cowCost * 1.10);
@@ -167,12 +197,16 @@ function buyCow() {
         document.getElementById("cow-cost").innerHTML = cowCost;
         document.getElementById("cow-income").innerHTML = cowIncome;
 
+        document.getElementById("total-clicks").innerHTML = totalClicks;
+
     }
 }
 
 function buyMoose() {
 
     if (gold >= mooseCost) {
+
+        totalClicks++;
 
         gold = gold - mooseCost;
         moose++;
@@ -183,12 +217,16 @@ function buyMoose() {
         document.getElementById("moose-cost").innerHTML = mooseCost;
         document.getElementById("moose-income").innerHTML = mooseIncome;
 
+        document.getElementById("total-clicks").innerHTML = totalClicks;
+
     }
 }
 
 function buyDragon() {
 
     if (gold >= dragonCost) {
+
+        totalClicks++;
 
         gold = gold - dragonCost;
         dragons++;
@@ -198,6 +236,8 @@ function buyDragon() {
         document.getElementById("dragons").innerHTML = dragons;
         document.getElementById("dragon-cost").innerHTML = dragonCost;
         document.getElementById("dragon-income").innerHTML = dragonIncome;
+
+        document.getElementById("total-clicks").innerHTML = totalClicks;
 
     }
 }
@@ -212,6 +252,8 @@ function buyPowerShovel() {
 
     if (gold >= powerShovelCost) {
 
+        totalClicks++;
+
         gold = gold -= powerShovelCost
         
         powerShovels = powerShovels + 1;
@@ -220,6 +262,8 @@ function buyPowerShovel() {
         document.getElementById("gold").innerHTML = gold;
         document.getElementById("power-shovels").innerHTML = powerShovels
         document.getElementById("power-shovel-cost").innerHTML = powerShovelCost;
+
+        document.getElementById("total-clicks").innerHTML = totalClicks;
        
     }
 }
@@ -227,6 +271,8 @@ function buyPowerShovel() {
 function buyDigger() {
 
     if (gold >= diggerCost) {
+
+        totalClicks++;
 
         gold = gold -= diggerCost
         
@@ -236,6 +282,8 @@ function buyDigger() {
         document.getElementById("gold").innerHTML = gold;
         document.getElementById("diggers").innerHTML = diggers;
         document.getElementById("digger-cost").innerHTML = diggerCost;
+
+        document.getElementById("total-clicks").innerHTML = totalClicks;
        
     }
 }
@@ -243,6 +291,8 @@ function buyDigger() {
 function buyExcavator() {
 
     if (gold >= excavatorCost) {
+
+        totalClicks++;
 
         gold = gold -= excavatorCost
         
@@ -252,6 +302,8 @@ function buyExcavator() {
         document.getElementById("gold").innerHTML = gold;
         document.getElementById("excavators").innerHTML = excavators;
         document.getElementById("excavator-cost").innerHTML = excavatorCost;
+
+        document.getElementById("total-clicks").innerHTML = totalClicks;
        
     }
 }
@@ -295,12 +347,16 @@ WORKERS */
 
 function hireWorker() {
 
+    totalClicks++;
+
     workers++;
     workerPayPerInterval = workerPay * workers;
     shitRequiredPerInterval = shitRequired * workers;
     document.getElementById("workers").innerHTML = workers;
     document.getElementById("worker-pay-per-interval").innerHTML = workerPayPerInterval;
     document.getElementById("shit-required-per-interval").innerHTML = shitRequiredPerInterval;
+
+    document.getElementById("total-clicks").innerHTML = totalClicks;
 
 }
 
@@ -363,7 +419,7 @@ let cowUpgrade = {
     name: ["cow upgrade 1", "cow upgrade 2", "cow upgrade 3"], 
     description: ["doubles the amount of shit produced by cows", "doubles the amount of shit produced by cows",
                 "doubles the amount of shit produced by cows"],
-    cost: [30, 60, 120],
+    cost: [40, 120, 360], //x3
     buildingIndex: [0, 0, 0], 
     requirement: [2, 10, 25],
     bonus: [2, 2, 2],
@@ -393,7 +449,7 @@ let mooseUpgrade = {
     name: ["moose upgrade 1", "moose upgrade 2", "moose upgrade 3"], 
     description: ["doubles the amount of shit produced by moose", "doubles the amount of shit produced by moose",
                 "doubles the amount of shit produced by moose"  ],
-    cost: [200, 400, 800],
+    cost: [250, 750, 2250],
     buildingIndex: [0, 0, 0], 
     requirement: [2, 10, 25],
     bonus: [2, 2, 2],
@@ -424,7 +480,7 @@ let dragonUpgrade = {
     name: ["dragon upgrade 1", "dragon upgrade 2", "dragon upgrade 3"], 
     description: ["doubles the amount of shit produced by dragons", "doubles the amount of shit produced by dragons",
                 "doubles the amount of shit produced by dragons"    ],
-    cost: [800, 1600, 3200],
+    cost: [1000, 3000, 9000],
     buildingIndex: [0, 0, 0], 
     requirement: [2, 10, 25],
     bonus: [2, 2, 2],
@@ -455,12 +511,12 @@ let shovelUpgrade = {
     description: ["doubles shovel power", 
                 "doubles shovel power", 
                 "doubles shovel power",
-                "triples shovel power", 
-                "quadruples shovel power"],
-    cost: [10, 20, 40, 80, 160],
+                "doubles shovel power", 
+                "triples shovel power"],
+    cost: [10, 20, 40, 80, 160],    // x2
     buildingIndex: [-1, -1, -1, -1, -1], 
-    requirement: [10, 50, 250, 1250, 6250],
-    bonus: [2, 2, 2, 3, 4],
+    requirement: [10, 100, 500, 1000, 2000], // 1-3 = x5, 4-5 = x2
+    bonus: [2, 2, 2, 2, 3],
     purchased: [false, false, false, false, false],
 
     purchase: function(index) {
@@ -483,16 +539,16 @@ let shitUpgrade = {
 
     name: ["shit upgrade 1", "shit upgrade 2", "shit upgrade 3"], 
     description: ["doubles the value of shit", "doubles the value of shit", "doubles the value of shit"],
-    cost: [100, 200, 400],
+    cost: [30, 150, 750], //x5
     buildingIndex: [-1, -1, -1], 
-    requirement: [250, 500, 1000],
+    requirement: [250, 750, 2250], //x3
     bonus: [2, 2, 2],
     purchased: [false, false, false],
 
     purchase: function(index) {
         if(!this.purchased[index] && gold >= this.cost[index]) { 
 
-            if (totalGoldMade >= this.requirement[index]) {
+            if (totalShitSold >= this.requirement[index]) {
                 gold -= this.cost[index];
                 shitValue = shitValue * this.bonus[index];
                 this.purchased[index] = true;
@@ -511,7 +567,7 @@ let powerShovelUpgrade = {
     name: ["power shovel upgrade 1", "power shovel upgrade 2", "power shovel upgrade 3"], 
     description: ["doubles the amount of shit shoveled by power shovels", 
     "doubles the amount of shit shoveled by power shovels", "doubles the amount of shit shoveled by power shovels"],
-    cost: [100, 500, 2500],
+    cost: [100, 500, 2500], // x5
     buildingIndex: [0, 0, 0], 
     requirement: [2, 10, 25], 
     bonus: [2, 2, 2],
@@ -537,7 +593,7 @@ let diggerUpgrade = {
     name: ["digger upgrade 1", "digger upgrade 2", "digger upgrade 3"], 
     description: ["doubles the amount of shit shoveled by diggers", "doubles the amount of shit shoveled by diggers",
                 "doubles the amount of shit shoveled by diggers"],
-    cost: [400, 800, 1600],
+    cost: [625, 3125, 15625],
     buildingIndex: [0, 0, 0], 
     requirement: [2, 5, 25],
     bonus: [2, 2, 2],
@@ -562,7 +618,7 @@ let excavatorUpgrade = {
     name: ["excavator upgrade 1", "excavator upgrade 2", "excavator upgrade 3"], 
     description: ["doubles the amount of shit shoveled by excavators", "doubles the amount of shit shoveled by excavators",
                 "doubles the amount of shit shoveled by excavators"],
-    cost: [1000, 2000, 4000],
+    cost: [3000, 15000, 75000],
     buildingIndex: [0, 0, 0], 
     requirement: [2, 5, 25],
     bonus: [2, 2, 2],
@@ -594,7 +650,7 @@ let workerUpgrade = {
     name: ["worker upgrade 1", "worker upgrade 2", "worker upgrade 3"],
     description: ["doubles the amount of shit sold by workers", "doubles the amount of shit sold by workers",
     "doubles the amount of shit sold by workers"],
-    cost: [420, 840, 1680],
+    cost: [420, 1260, 3780], // x3
     requirement: [2, 10, 25],
     bonus: [2, 2, 2],
     purchased: [false, false, false],
@@ -704,6 +760,14 @@ DISPLAY */
 
 let display = {
 
+    addShitButton: function() {
+
+        if (totalShitSold >= 1000) {
+
+            document.getElementById("sell-fifty-shit-button").style.display = "block";
+        }
+    },
+
     updateStats: function() {
 
         document.getElementById("gold").innerHTML = gold;
@@ -765,7 +829,7 @@ let display = {
 
         document.getElementById("worker-pay-per-interval").innerHTML = workerPayPerInterval; 
  
-         if (totalShitShoveled >= 400 ) { 
+         if (totalShitShoveled >= 500 ) { 
  
              document.getElementById("worker-container").style.display = "block";
              document.getElementById("workers").innerHTML = workers;
@@ -776,7 +840,7 @@ let display = {
 
     updateMachineShop: function() {
 
-        if(totalClicks >= 50) {
+        if(totalClicks >= 100) {
             document.getElementById("machine-shop-header").style.display = "block";
             document.getElementById("power-shovel-container").style.display = "block";
             document.getElementById("power-shovels").innerHTML = powerShovels;
@@ -822,6 +886,27 @@ let display = {
     updateUpgrades: function() {
 
         document.getElementById("upgrade-container").innerHTML = "";
+
+        // SHOVEL & SHIT
+
+        for(i = 0; i <shovelUpgrade.name.length; i++) {
+            if(!shovelUpgrade.purchased[i]) {
+                if(totalClicks >= shovelUpgrade.requirement[i]) {
+                    document.getElementById("upgrade-container").innerHTML += '<button class="upgrade shovel" onclick="shovelUpgrade.purchase('+i+')" title="'+shovelUpgrade.description[i]+' &#10;cost: '+shovelUpgrade.cost[i]+'">'+shovelUpgrade.name[i]+'</button>';
+                    }
+                }
+            }
+
+        for(i = 0; i <shitUpgrade.name.length; i++) {
+            if(!shitUpgrade.purchased[i]) {
+                if(totalShitSold >= shitUpgrade.requirement[i]) {
+                    document.getElementById("upgrade-container").innerHTML += '<button class="upgrade shit" onclick="shitUpgrade.purchase('+i+')" title="'+shitUpgrade.description[i]+' &#10;cost: '+shitUpgrade.cost[i]+'">'+shitUpgrade.name[i]+'</button>';
+                    }
+                }
+            }
+
+        //ANIMALS
+
         for(i = 0; i <cowUpgrade.name.length; i++) {
             if(!cowUpgrade.purchased[i]) {
                 if(cows >= cowUpgrade.requirement[i]) {
@@ -840,21 +925,7 @@ let display = {
                 }
             }
 
-        for(i = 0; i <shovelUpgrade.name.length; i++) {
-            if(!shovelUpgrade.purchased[i]) {
-                if(totalClicks >= shovelUpgrade.requirement[i]) {
-                    document.getElementById("upgrade-container").innerHTML += '<button class="upgrade shovel" onclick="shovelUpgrade.purchase('+i+')" title="'+shovelUpgrade.description[i]+' &#10;cost: '+shovelUpgrade.cost[i]+'">'+shovelUpgrade.name[i]+'</button>';
-                    }
-                }
-            }
-
-            for(i = 0; i <shitUpgrade.name.length; i++) {
-                if(!shitUpgrade.purchased[i]) {
-                    if(totalShitShoveled >= shitUpgrade.requirement[i]) {
-                        document.getElementById("upgrade-container").innerHTML += '<button class="upgrade shit" onclick="shitUpgrade.purchase('+i+')" title="'+shitUpgrade.description[i]+' &#10;cost: '+shitUpgrade.cost[i]+'">'+shitUpgrade.name[i]+'</button>';
-                        }
-                    }
-                }
+        // MACHINES
 
         for(i = 0; i <powerShovelUpgrade.name.length; i++) {
             if(!powerShovelUpgrade.purchased[i]) {
@@ -880,6 +951,8 @@ let display = {
                         }
                     }
                 }
+
+        // WORKERS        
 
         for(i = 0; i <workerUpgrade.name.length; i++) {
             if(!workerUpgrade.purchased[i]) {
@@ -1211,6 +1284,8 @@ setInterval(function(){
     getShitProducedPerInterval();
     getShitShoveledPerInterval();  
     getWorkerIncomePerInterval();
+
+    display.addShitButton();
 
     display.updateStats();
 
