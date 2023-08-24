@@ -990,7 +990,7 @@ function loadGame() {
 
     if (typeof savedGame.powerShovelUpgradePurchased !== "undefined") {
         for (i = 0; i < savedGame.powerShovelUpgradePurchased.length; i++) {
-        powerShovelUpgrade.purchased[i] = savedGame.shovelPowerUpgradePurchased[i];
+        powerShovelUpgrade.purchased[i] = savedGame.powerShovelUpgradePurchased[i];
         }
     }
 
