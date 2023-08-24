@@ -9,8 +9,7 @@
 </head>
 <body>
     <header>
-        <h1>shitmaster</h1>  
-        
+        <h1>shitmaster</h1>     
     </header>
 </main>
 <div id="achievement-container-collapsible">
@@ -26,8 +25,8 @@
                 <p>gold: <span id="gold" class="amount"></span></p>
                 <p>shit produced: <span id="shit-produced" class="amount"></span></p>
                 <p>shit shoveled: <span id="shit-shoveled" class="amount"></span></p>
+                <br>
                 <p>shit shoveled per click: <span id="shovel-power" class="amount"></span></p>
-                <!--<p>shit sold per click: <span id="gold-value"></span></p>-->
                 <p>shit value: <span id="shit-value" class="amount"></span> gold / 5 shit</p>
                 <p></p>
                 <div id="shit-button-container">
@@ -35,7 +34,10 @@
                     title="click to shovel shit">shovel shit</button>
 
                     <button class="shit-button" onclick="sellShit();"
-                    title="click to sell shit">sell shit</button> 
+                    title="click to sell 5 shit">sell 5 shit</button> 
+
+                    <button id="sell-fifty-shit-button" style="display: none;" class="shit-button" onclick="sellFiftyShit();"
+                    title="click to sell 50 shit">sell 50 shit</button> 
                 </div>
                 <div id="shit-per-interval-container">
                     <p>shit produced: <span id="shit-produced-per-interval" class="amount">0</span>/s</p>
@@ -133,6 +135,7 @@
             
                 <div id="time">
                     <p>time passed: 
+                    <span id="weeks" class="amount"></span>
                     <span id="days" class="amount"></span>
                     <span id="hours" class="amount"></span>
                     <span id="minutes" class="amount"></span>
@@ -170,6 +173,7 @@
     <footer>  
         <div id="footer-content">
             <p class="footer-text">a javascript basics exercise / a very shitty clicker incremental game</p>    
+            <p class="footer-text">v. 0.1</p>
             <p class="footer-text">saves every 30s / by ctrl + s</p>
             <button id="reset-button" onclick="resetGame();">reset game</button>
         </div>
